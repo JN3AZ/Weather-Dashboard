@@ -237,11 +237,9 @@ function searchCity(cityName) {
         displayCurrentWeather();
 
         var fiveDayQueryUrl =
-          "https://api.openweathermap.org/data/2.5/forecast/daily?q=" +
-          city +
-          "&appid=" +
-          APIKey +
-          "&cnt=5";
+          "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" +APIKey+ "&cnt=5";
+         
+
         $.ajax({
           url: fiveDayQueryUrl,
           method: "GET",
@@ -261,7 +259,7 @@ function searchCity(cityName) {
               32
             ).toFixed(1);
             dayhumidity = fiveDayForecast[i].humidity;
-            displayDayForeCast();
+            displayDayForeCast("#five-day-forecast");
           }
         });
       });
